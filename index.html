@@ -20,6 +20,13 @@
             background-color: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
         }
+        @keyframes pulse-live {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        .live-dot {
+            animation: pulse-live 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -37,8 +44,17 @@
         <div class="relative z-10">
             <h2 class="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-none">They Can't Stop The Signal</h2>
             <p class="text-xl md:text-3xl font-light mt-4 max-w-3xl mx-auto">In a world of suppressed expression, one asset flies higher. We are the protectors of the airborne green protest. We are $DILDO.</p>
-            <div class="mt-8">
-                <a href="#about" class="bg-white text-green-700 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition-colors">Read the Greenpaper</a>
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#about" class="bg-white text-green-700 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition-colors w-full sm:w-auto">Read the Greenpaper</a>
+                <a href="#roadmap" class="bg-black bg-opacity-20 border border-white/50 font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-40 transition-colors w-full sm:w-auto">View Roadmap</a>
+            </div>
+            <!-- Live Confiscation Feed -->
+            <div id="live-feed" class="card-bg border border-green-400/50 rounded-lg mt-12 max-w-md mx-auto p-3 text-left text-sm">
+                <div class="flex items-center mb-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full mr-2 live-dot"></div>
+                    <span class="font-bold text-red-400">LIVE CONFISCATION FEED</span>
+                </div>
+                <p id="feed-text" class="text-gray-200"></p>
             </div>
         </div>
         <!-- Animated Background Elements -->
@@ -56,51 +72,129 @@
             <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">Brave fans attend WNBA games, eager to express their... support... with glorious, green, aerodynamic projectiles. Yet, time and again, these symbols of free speech are unjustly seized by overzealous security. This cannot stand.</p>
 
             <div class="mt-16 grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
                 <div class="card-bg p-8 rounded-2xl border border-green-700/50">
                     <div class="text-5xl mb-4">🛡️</div>
                     <h4 class="text-2xl font-bold mb-2">The $DILDO Shield</h4>
                     <p class="text-gray-400">Our revolutionary Proof-of-Huck protocol ensures that for every green dildo confiscated, the holder of $DILDO is compensated. It's more than a memecoin; it's an insurance policy for hilarity.</p>
                 </div>
-                <!-- Card 2 -->
                 <div class="card-bg p-8 rounded-2xl border border-green-700/50 glow">
                     <div class="text-5xl mb-4">🚀</div>
                     <h4 class="text-2xl font-bold mb-2">Trajectory Insurance</h4>
-                    <p class="text-gray-400">Did your projectile fall short of the court? Was it intercepted mid-flight? Our smart contract analyzes launch angles and wind resistance to airdrop tokens for "performance issues."</p>
+                    <p class="text-gray-400">Did your projectile fall short? Was it intercepted? Our smart contract analyzes launch angles and wind resistance to airdrop tokens for "performance issues."</p>
                 </div>
-                <!-- Card 3 -->
                 <div class="card-bg p-8 rounded-2xl border border-green-700/50">
                     <div class="text-5xl mb-4">🤝</div>
                     <h4 class="text-2xl font-bold mb-2">Community Governed</h4>
-                    <p class="text-gray-400">Holders of $DILDO vote on crucial matters, such as "Optimal Shade of Green," "Acceptable Aerodynamic Fin Designs," and "Official Post-Game Apology Templates."</p>
+                    <p class="text-gray-400">Holders vote on crucial matters, such as "Optimal Shade of Green," "Acceptable Fin Designs," and "Official Post-Game Apology Templates."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="py-20 px-4 bg-gray-900">
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 px-4 bg-gray-800/50">
         <div class="container mx-auto text-center">
-            <h3 class="text-4xl font-bold text-green-400">The Unrelenting Process</h3>
-            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">Our three-step system ensures maximum disruption and protection.</p>
-            <div class="mt-12 max-w-4xl mx-auto border-l-2 border-green-500 border-dashed pl-8 relative">
-                <!-- Step 1 -->
-                <div class="mb-12 relative">
-                    <div class="absolute -left-12 top-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center font-bold text-gray-900">1</div>
-                    <h4 class="text-2xl font-bold text-left">Acquire & Prepare</h4>
-                    <p class="text-left text-gray-400">Buy $DILDO on your favorite decentralized exchange. Then, procure a regulation-green projectile. (Do not store them together. That's just weird.)</p>
+            <h3 class="text-4xl font-bold text-green-400">Our Glorious Future</h3>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">We're not just throwing things. We're building a movement.</p>
+            <div class="mt-12 max-w-4xl mx-auto">
+                <!-- Phase 1 -->
+                <div class="flex items-start mb-8">
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center font-bold text-xl text-gray-900">1</div>
+                        <div class="w-1 h-full bg-green-500/30"></div>
+                    </div>
+                    <div class="text-left p-4 card-bg rounded-lg w-full">
+                        <h4 class="text-xl font-bold text-green-300">Phase 1: Liftoff (Complete)</h4>
+                        <p class="text-gray-400">Launch $DILDO token, establish the DAO, successfully process the first compensation claim for a bravely confiscated projectile during a heated overtime match.</p>
+                    </div>
                 </div>
-                <!-- Step 2 -->
-                <div class="mb-12 relative">
-                    <div class="absolute -left-12 top-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center font-bold text-gray-900">2</div>
-                    <h4 class="text-2xl font-bold text-left">The Launch</h4>
-                    <p class="text-left text-gray-400">At a pivotal moment in the game, let freedom fly. Aim for the general vicinity of... well, anywhere, really. The gesture is what counts. Our network of spotters will verify the attempt.</p>
+                <!-- Phase 2 -->
+                <div class="flex items-start mb-8">
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center font-bold text-xl text-gray-900">2</div>
+                        <div class="w-1 h-full bg-green-500/30"></div>
+                    </div>
+                    <div class="text-left p-4 card-bg rounded-lg w-full">
+                        <h4 class="text-xl font-bold text-green-300">Phase 2: Splash Damage (In Progress)</h4>
+                        <p class="text-gray-400">Introduce "Celebrity Proximity" staking rewards. Develop a mobile app with launch angle calculation and live wind-speed data from arenas. First-person view drone-follow cams.</p>
+                    </div>
                 </div>
-                <!-- Step 3 -->
-                <div class="relative">
-                    <div class="absolute -left-12 top-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center font-bold text-gray-900">3</div>
-                    <h4 class="text-2xl font-bold text-left">Claim Your Glory</h4>
-                    <p class="text-left text-gray-400">If your item is confiscated, simply submit a "Loss Report" to the DAO. Upon verification, your wallet will be showered with $DILDO tokens, turning your loss into a legendary financial victory.</p>
+                <!-- Phase 3 -->
+                <div class="flex items-start mb-8">
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-12 h-12 rounded-full border-2 border-dashed border-green-500 flex items-center justify-center font-bold text-xl text-green-500">3</div>
+                         <div class="w-1 h-full bg-green-500/30"></div>
+                    </div>
+                    <div class="text-left p-4 card-bg rounded-lg w-full">
+                        <h4 class="text-xl font-bold text-green-300">Phase 3: Advanced Ballistics</h4>
+                        <p class="text-gray-400">R&D for silent, radar-evading projectiles. Secure a partnership with a major league mascot for "promotional launches." Introduce multi-stage, separating projectiles for wider coverage.</p>
+                    </div>
+                </div>
+                 <!-- Phase 4 -->
+                <div class="flex items-start">
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-12 h-12 rounded-full border-2 border-dashed border-green-500 flex items-center justify-center font-bold text-xl text-green-500">4</div>
+                    </div>
+                    <div class="text-left p-4 card-bg rounded-lg w-full">
+                        <h4 class="text-xl font-bold text-green-300">Phase 4: The Final Frontier</h4>
+                        <p class="text-gray-400">Orbital Deployment System. The first dildo launched from a low-orbit satellite, achieving hypersonic re-entry speeds. We will call it "The Rod from God."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h3 class="text-4xl font-bold text-green-400">The Minds Behind the Mayhem</h3>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">We're a dedicated team of visionaries, scientists, and degenerates.</p>
+            <div class="mt-16 grid sm:grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Team Member 1 -->
+                <div class="text-center">
+                    <img src="https://placehold.co/200x200/059669/FFFFFF?text=CA" class="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-green-600" alt="Chadwick Armstrong">
+                    <h4 class="text-2xl font-bold">Chadwick "The Arm" Armstrong</h4>
+                    <p class="text-green-400 font-semibold">Chief Trajectory Officer</p>
+                    <p class="text-gray-400 mt-2 max-w-xs mx-auto">A disgraced Olympic javelin thrower, Chadwick now applies his formidable arm and understanding of physics to a much, much funnier cause.</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="text-center">
+                    <img src="https://placehold.co/200x200/059669/FFFFFF?text=PG" class="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-green-600" alt="Dr. Penelope Green">
+                    <h4 class="text-2xl font-bold">Dr. Penelope Green</h4>
+                    <p class="text-green-400 font-semibold">Head of Polymer Sciences</p>
+                    <p class="text-gray-400 mt-2 max-w-xs mx-auto">With a PhD in material science, Penelope is obsessed with creating the perfect shade of "protest green" and ensuring optimal aerodynamic stability on all our products.</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="text-center">
+                    <img src="https://placehold.co/200x200/059669/FFFFFF?text=?" class="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-green-600" alt="Glitch">
+                    <h4 class="text-2xl font-bold">"Glitch"</h4>
+                    <p class="text-green-400 font-semibold">Lead Smart Contract Dev</p>
+                    <p class="text-gray-400 mt-2 max-w-xs mx-auto">Anonymous. Only communicates via encrypted memes. Rumored to have once taken down a stadium jumbotron with a single line of code after a bad call.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4 bg-gray-900">
+        <div class="container mx-auto max-w-3xl">
+            <h3 class="text-4xl font-bold text-center text-green-400">Frequently Asked Questions</h3>
+            <div class="mt-12 space-y-6">
+                <div>
+                    <h4 class="font-bold text-xl text-green-200">Is this... legal?</h4>
+                    <p class="text-gray-400 mt-1">We operate in the legally gray, comedically golden area of expressive protest. We are not lawyers. This is not legal advice. But it is funny.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl text-green-200">What if I miss the court entirely?</h4>
+                    <p class="text-gray-400 mt-1">There are no mistakes, only happy accidents. Our "Errant Projectile Clause" ensures partial compensation for attempts that demonstrate significant heart, even if they end up in some guy's nachos.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl text-green-200">Can I use a different color projectile?</h4>
+                    <p class="text-gray-400 mt-1">While we respect artistic freedom, only Regulation-Green™ projectiles (Pantone #354 C) are covered by the $DILDO Shield. It's in the Greenpaper, Section 4, Subsection B. Read it.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl text-green-200">Is this a security?</h4>
+                    <p class="text-gray-400 mt-1">It provides security... for your right to be a public nuisance. So, yes? No. Definitely not. Not financial advice. Please don't sue us.</p>
                 </div>
             </div>
         </div>
@@ -113,6 +207,31 @@
             <p class="mt-2 text-sm text-gray-600">&copy; 2025 The Unrelenting Projectile Foundation. All rights reserved (not really).</p>
         </div>
     </footer>
+
+    <script>
+        // Fake Live Feed Script
+        const feedElement = document.getElementById('feed-text');
+        const feedItems = [
+            "CONFISCATION: Section 112, Row G. Compensation claim initiated.",
+            "ATTEMPT DETECTED: Upper deck, near popcorn stand. Trajectory looks promising.",
+            "SECURITY ALERT: Aisle 4. A brave soldier has fallen. F's in chat.",
+            "COMPENSATION PAID: 420.69 $DILDO sent to wallet 0x...BEEF.",
+            "INTERCEPTION: Mascot blocked a potential court-lander. DAO vote pending on mascot's 'hostile' status.",
+            "SUCCESSFUL LAUNCH: Near the announcer's table. A thing of beauty."
+        ];
+        let currentItem = 0;
+        function updateFeed() {
+            feedElement.style.opacity = 0;
+            setTimeout(() => {
+                currentItem = (currentItem + 1) % feedItems.length;
+                feedElement.innerText = feedItems[currentItem];
+                feedElement.style.opacity = 1;
+            }, 500);
+        }
+        setInterval(updateFeed, 5000);
+        // Initial text
+        feedElement.innerText = feedItems[0];
+    </script>
 
 </body>
 </html>
